@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div> {{msg}} </div>
+        <div> {{reversedMsg}} </div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello world"
+            },
+            computed:{
+                reversedMsg:{
+                    get(){
+                        return this.msg.split('').reverse().join('')
+                    },
+                    set(value){
+                        this.msg = value
+                    }
+                }
+            },
+            watch:{
+                msg (newMsg) {
+                    console.log("data msg updated:"+newMsg)
+                },
+                reversedMsg(value){
+                    console.log("data reversedMsg updated:"+value);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
