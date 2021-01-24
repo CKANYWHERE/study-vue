@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app1">
+        <my-component> </my-component>
+    </div>
+
+    <div id="app2">
+        <my-comp> </my-comp>
+    </div>
+
+    <script>
+
+        const myComp = {
+            template: '<div class="me"> {{message}} </div>',
+            data(){
+                return{
+                    message:"hello vue!"
+                }
+            }
+        }
+
+        const vm1 = new Vue({
+            el:"#app1",
+            components:{
+                'my-component':myComp
+            }
+        })
+
+        const vm2 = new Vue({
+            el:"#app2",
+            components:{
+                'my-comp':myComp
+            }
+        })
+    </script>
+
+</body>
+</html>
